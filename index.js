@@ -2,8 +2,8 @@ const { Client, Events, GatewayIntentBits, REST, Routes } = require("discord.js"
 const axios = require('axios');
 
 // Reemplaza con tu clave API y el ID del jugador
-const apiKey = process.env.TOKEN;
-const playerTag = '29PVC9PG'; // sin el #
+const apiKey = process.env.BRAWL_API_KEY;
+const playerTag = process.env.BRAWL_PLAYER_TAG; // sin el #
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds]
