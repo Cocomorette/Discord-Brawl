@@ -1,5 +1,5 @@
 const { Client, Events, GatewayIntentBits, REST, Routes } = require("discord.js");
-const keep_alive = require('./keep_alive.js')
+const keepalive = require('./keep_alive.js')
 const axios = require('axios');
 
 // Reemplaza con tu clave API y el ID del jugador
