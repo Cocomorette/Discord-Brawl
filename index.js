@@ -1,10 +1,13 @@
+require('dotenv').config();
+
+
 const { Client, Events, GatewayIntentBits, REST, Routes } = require("discord.js");
 const keepalive = require('./keep_alive.js')
 const axios = require('axios');
 
 // Reemplaza con tu clave API y el ID del jugador
 const apiKey = process.env.BRAWL_API_KEY;
-const playerTag = process.env.BRAWL_PLAYER_TAG; // sin el #
+const playerTag = process.env.PLAYER_TAG; // sin el #
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds]
@@ -15,7 +18,7 @@ client.once(Events.ClientReady, async () => {
     console.log(`Conectado como ${client.user.username}`);
     
     // Registrar el comando /up
-    const rest = new REST({ version: '10' }).setToken(process.env.BRAWL_API_KEY);
+    const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
     try {
         console.log('Registrando comando /up...');
         await rest.put(
