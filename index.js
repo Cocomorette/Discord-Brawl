@@ -76,19 +76,13 @@ client.on(Events.InteractionCreate, async interaction => {
                 // Obtener las fechas actuales en Colombia y Argentina
                 const now = new Date();
                 const nowColombia = new Date(now.toLocaleString("en-US", { timeZone: "America/Bogota" }));
-                const nowArgentina = new Date(now.toLocaleString("en-US", { timeZone: "America/Argentina/Buenos_Aires" }));
 
                 // Calcular diferencia en minutos
                 const diffInMsColombia = nowColombia - battleDateColombia;
                 const diffInMinutesColombia = Math.floor(diffInMsColombia / (1000 * 60)); // minutos
 
-                const diffInMsArgentina = nowArgentina - battleDateArgentina;
-                const diffInMinutesArgentina = Math.floor(diffInMsArgentina / (1000 * 60));
 
-                // Formatear fecha en español
-                const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-                const battleDateFormattedColombia = battleDateColombia.toLocaleDateString('es-ES', options);
-                const battleDateFormattedArgentina = battleDateArgentina.toLocaleDateString('es-ES', options);
+
 
                 // Respuesta al comando
                 await interaction.reply(`Han pasado: ${diffInMinutesColombia} minutos desde la última partida.\n`);
